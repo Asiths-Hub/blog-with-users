@@ -174,8 +174,8 @@ def get_all_posts():
 def show_post(post_id):
     form = CommentForm()
     requested_post = db.session.get(BlogPost, post_id)
-        if requested_post is None:
-            abort(404)
+    if requested_post is None:
+        abort(404)
 
     comment_list = db.session.execute(db.select(Comment)).scalars().all()
     if form.validate_on_submit():
